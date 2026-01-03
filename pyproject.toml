@@ -2,7 +2,7 @@
 name = "synergy-way-task"
 version = "0.1.0"
 description = "Celery-based periodic data ingestion service"
-requires-python = ">=3.11"
+requires-python = ">=3.10.12"
 
 dependencies = [
   "celery>=5.3",
@@ -61,3 +61,10 @@ combine-as-imports = true
 minversion = "8.0"
 addopts = "-ra -q"
 testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app"]
