@@ -17,6 +17,7 @@ class Comment(Base):
     post_id: Mapped[int] = mapped_column(
         Integer,
         ForeignKey("posts.id", ondelete="CASCADE"),
+        nullable=False,
     )
 
     user_id: Mapped[int] = mapped_column(

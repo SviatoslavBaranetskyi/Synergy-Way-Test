@@ -30,15 +30,15 @@ class PostService:
             if self.post_repo.exists(external_id):
                 continue
 
-            user = self.user_repo.get_by_external_id(item["userId"])
-            if not user:
-                continue
+            external_user_id = item["userId"]
+            user = self.user_repo.get_by_external_id(external_user_id)
 
             post = Post(
                 external_id=external_id,
                 title=item["title"],
                 body=item["body"],
-                user_id=user.id,
+                external_user_id=external_user_id,
+                user_id=user.id if user else None,
             )
             new_posts.append(post)
 

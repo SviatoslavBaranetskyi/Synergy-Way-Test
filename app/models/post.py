@@ -15,9 +15,12 @@ class Post(Base):
     title: Mapped[str] = mapped_column(String(255))
     body: Mapped[str] = mapped_column(Text)
 
+    external_user_id: Mapped[int] = mapped_column(index=True)
+
     user_id: Mapped[int] = mapped_column(
         Integer,
         ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=True,
     )
 
     created_at: Mapped[datetime] = mapped_column(
