@@ -14,6 +14,6 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 RUN pip install --upgrade pip setuptools wheel
 
-RUN pip install -e .
+RUN pip install -e .[dev]
 
 EXPOSE 8000
